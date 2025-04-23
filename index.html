@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
     <div class="container">
         <header>
             <div class="header-content">
@@ -197,5 +203,27 @@
             <p>Open to remote, part-time, or full-time opportunities</p>
         </section>
     </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Get the theme toggle button
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Check if user has a saved preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            // Update the theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+
+            // Save preference to localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
