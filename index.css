@@ -340,12 +340,14 @@ header h2::after {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.project-links a[href*="youtube"] {
+.project-links a[href*="youtube"],
+.project-links a[href*="drive.google.com"] {
     background-color: #ff0000;
     color: white;
 }
 
-.project-links a[href*="youtube"]:hover {
+.project-links a[href*="youtube"]:hover,
+.project-links a[href*="drive.google.com"]:hover {
     background-color: #cc0000;
     color: white;
 }
