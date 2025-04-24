@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Utilities Plugin Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+        }
+        code {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            padding: 2px 5px;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        pre code {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+        }
+        .function {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .function h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .parameter {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        .parameter strong {
+            color: #e74c3c;
+        }
+        .return {
+            margin-left: 20px;
+            color: #27ae60;
+        }
+        .note {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .warning {
+            background-color: #fdedec;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .author-info {
+            font-style: italic;
+            margin-top: 10px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hardware Utilities Plugin</h1>
+        <p>Comprehensive documentation for accessing hardware information in Unreal Engine</p>
+        <div class="author-info">
+            Created by Anshul Patalbansi
+        </div>
+    </header>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#functions">Available Functions</a>
+                <ul>
+                    <li><a href="#cpu-functions">CPU Information</a></li>
+                    <li><a href="#gpu-functions">GPU Information</a></li>
+                    <li><a href="#monitor-functions">Monitor Information and Control</a></li>
+                    <li><a href="#audio-functions">Audio Device Information</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#future-updates">Future Updates</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </div>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+            The Hardware Utilities Plugin extends Unreal Engine's Blueprint system with functions to access and manipulate hardware information.
+            This plugin provides easy access to CPU, GPU, monitor, and audio device information, allowing developers to create more hardware-aware applications.
+        </p>
+        <p>
+            A key feature of this plugin is the ability to switch between multiple screens during gameplay, enabling developers to create multi-monitor
+            experiences or allow players to move the game window between different displays without having to exit fullscreen mode.
+        </p>
+        <p>
+            Whether you need to optimize your game based on the user's hardware capabilities, display system information, or control monitor settings,
+            this plugin offers a comprehensive set of tools accessible directly from Blueprints.
+        </p>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <p>To install the Hardware Utilities Plugin in your Unreal Engine project:</p>
+        <ol>
+            <li>Copy the <code>HardwareUtilitiesPlugin_5.5</code> folder to your project's <code>Plugins</code> directory.</li>
+            <li>If your project doesn't have a <code>Plugins</code> directory, create one in your project's root folder.</li>
+            <li>Restart the Unreal Engine editor.</li>
+            <li>Enable the plugin by going to <strong>Edit → Plugins</strong>, find the <strong>Hardware Utilities</strong> plugin under the <strong>Hardware</strong> category, and check the <strong>Enabled</strong> checkbox.</li>
+            <li>Restart the editor when prompted.</li>
+        </ol>
+        <p>The plugin is now installed and ready to use in your project.</p>
+    </section>
+
+    <section id="functions">
+        <h2>Available Functions</h2>
+        <p>
+            The Hardware Utilities Plugin provides a variety of functions to access hardware information.
+            All functions are accessible through the Blueprint system under the "Hardware Utilities" category.
+        </p>
+
+        <section id="cpu-functions">
+            <h3>CPU Information</h3>
+
+            <div class="function">
+                <h4>Get CPU Brand Name</h4>
+                <p>Returns the brand name of the CPU.</p>
+                <div class="return"><strong>Returns:</strong> String - The CPU brand name (e.g., "Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz")</div>
+                <pre><code>// Example usage in Blueprint
+String CPUName = Get CPU Brand Name();</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Get CPU Vendor Name</h4>
+                <p>Returns the vendor name of the CPU.</p>
+                <div class="return"><strong>Returns:</strong> String - The CPU vendor name (e.g., "GenuineIntel", "AuthenticAMD")</div>
+                <pre><code>// Example usage in Blueprint
+String CPUVendor = Get CPU Vendor Name();</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Get Number of CPU Cores</h4>
+                <p>Returns the number of physical CPU cores.</p>
+                <div class="return"><strong>Returns:</strong> Integer - The number of CPU cores</div>
+                <pre><code>// Example usage in Blueprint
+int32 CoreCount = Get Number of CPU Cores();</code></pre>
+            </div>
+        </section>
+
+        <section id="gpu-functions">
+            <h3>GPU Information</h3>
+
+            <div class="function">
+                <h4>Get GPU Brand Name</h4>
+                <p>Returns the brand name of the primary GPU.</p>
+                <div class="return"><strong>Returns:</strong> String - The GPU brand name (e.g., "NVIDIA GeForce RTX 3080")</div>
+                <pre><code>// Example usage in Blueprint
+String GPUName = Get GPU Brand Name();</code></pre>
+            </div>
+        </section>
+
+        <section id="monitor-functions">
+            <h3>Monitor Information and Control</h3>
+
+            <div class="function">
+                <h4>Get Monitor Brand Names</h4>
+                <p>Returns an array of all connected monitor names.</p>
+                <div class="return"><strong>Returns:</strong> Array of Strings - The names of all connected monitors</div>
+                <pre><code>// Example usage in Blueprint
+Array&lt;String&gt; MonitorNames = Get Monitor Brand Names();</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Get Monitors Count</h4>
+                <p>Returns the number of connected monitors.</p>
+                <div class="return"><strong>Returns:</strong> Integer - The number of connected monitors</div>
+                <pre><code>// Example usage in Blueprint
+int32 MonitorCount = Get Monitors Count();</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Get Primary Monitor</h4>
+                <p>Returns the index of the primary monitor.</p>
+                <div class="return"><strong>Returns:</strong> Integer - The index of the primary monitor (0-based)</div>
+                <pre><code>// Example usage in Blueprint
+int32 PrimaryMonitorIndex = Get Primary Monitor();</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Set Active Monitor</h4>
+                <p>Sets the specified monitor as the active display for the application window.</p>
+                <div class="parameter"><strong>MonitorIndex:</strong> Integer - The index of the monitor to set as active (0-based)</div>
+                <div class="return"><strong>Returns:</strong> Boolean - True if successful, False otherwise</div>
+                <pre><code>// Example usage in Blueprint
+bool Success = Set Active Monitor(1); // Set the second monitor as active</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Set Gamma</h4>
+                <p>Sets the gamma correction value for the display.</p>
+                <div class="parameter"><strong>Gamma:</strong> Float - The gamma value to set (range: 1.0 to 5.0)</div>
+                <pre><code>// Example usage in Blueprint
+Set Gamma(2.2); // Set gamma to 2.2</code></pre>
+            </div>
+
+            <div class="function">
+                <h4>Get Gamma</h4>
+                <p>Gets the current gamma correction value for the display.</p>
+                <div class="return"><strong>Returns:</strong> Float - The current gamma value</div>
+                <pre><code>// Example usage in Blueprint
+float CurrentGamma = Get Gamma();</code></pre>
+            </div>
+        </section>
+
+        <section id="audio-functions">
+            <h3>Audio Device Information</h3>
+
+            <div class="function">
+                <h4>Get Audio Device Name</h4>
+                <p>Returns the name of the primary audio device.</p>
+                <div class="return"><strong>Returns:</strong> String - The name of the primary audio device</div>
+                <pre><code>// Example usage in Blueprint
+String AudioDeviceName = Get Audio Device Name();</code></pre>
+            </div>
+        </section>
+    </section>
+
+
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+
+        <div class="note">
+            <h3>Common Issues</h3>
+            <ul>
+                <li>
+                    <strong>Plugin not appearing in the editor:</strong> Make sure the plugin is placed in the correct directory and is enabled in the Plugins menu.
+                </li>
+                <li>
+                    <strong>Functions returning empty or incorrect values:</strong> Some functions may have platform-specific limitations. Check if your operating system and hardware support the requested information.
+                </li>
+                <li>
+                    <strong>Set Active Monitor not working:</strong> This function may have limitations depending on the operating system and window mode. It works best in windowed mode.
+                </li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>Platform Limitations</h3>
+            <p>
+                The Hardware Utilities Plugin is designed to work on Windows and Mac platforms. Some functions may have limited functionality or may not work at all on other platforms.
+            </p>
+        </div>
+    </section>
+
+    <section id="future-updates">
+        <h2>Future Updates</h2>
+        <p>
+            The Hardware Utilities Plugin is actively being developed with several exciting features planned for upcoming releases:
+        </p>
+        <ul>
+            <li>
+                <strong>Advanced Audio Device Management:</strong> Change audio input and output devices directly from your game, allowing players to switch between speakers, headphones, and microphones without leaving the game.
+            </li>
+            <li>
+                <strong>Hardware Performance Monitoring:</strong> Real-time monitoring of CPU, GPU, and RAM usage, enabling developers to optimize game performance and players to track system resource utilization.
+            </li>
+            <li>
+                <strong>Enhanced Multi-Display Support:</strong> Additional features for multi-monitor setups, including per-monitor resolution and refresh rate control.
+            </li>
+            <li>
+                <strong>Hardware-Based Game Settings:</strong> Automatic detection and application of optimal game settings based on the player's hardware configuration.
+            </li>
+        </ul>
+        <p>
+            Stay tuned for these updates by following the author's website or social media channels.
+        </p>
+    </section>
+
+    <section id="support">
+        <h2>Support</h2>
+        <p>
+            If you encounter any issues or have questions about the Hardware Utilities Plugin, please contact the author:
+        </p>
+        <ul>
+            <li><strong>Website:</strong> <a href="https://anshulpatalbansi.com">https://anshulpatalbansi.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anshul-patalbansi-014a43186/">https://www.linkedin.com/in/anshul-patalbansi-014a43186/</a></li>
+        </ul>
+    </section>
+
+    <div class="footer">
+        <p>Hardware Utilities Plugin Documentation &copy; 2025 Anshul Patalbansi. All rights reserved.</p>
+        <p>Unreal Engine is a trademark or registered trademark of Epic Games, Inc. in the United States and elsewhere.</p>
+    </div>
+</body>
+</html>
