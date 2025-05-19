@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Web Browser Plugin Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.3em;
+            margin-top: 1.2em;
+        }
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+            line-height: 1.45;
+            margin: 1em 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .feature {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .feature-code {
+            margin-top: 10px;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+            font-size: 1.5em;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .author-info {
+            text-align: center;
+            margin: 20px 0 40px 0;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Optimized Web Browser Plugin</h1>
+
+    <div class="author-info">
+        <p>Comprehensive documentation for the optimized web browser in Unreal Engine</p>
+        <p>Created by Anshul Patalbansi</p>
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#overview">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#usage">Usage</a>
+                <ul>
+                    <li><a href="#blueprints">In Blueprints</a></li>
+                    <li><a href="#cpp">In C++</a></li>
+                </ul>
+            </li>
+            <li><a href="#api-reference">Available Functions</a>
+                <ul>
+                    <li><a href="#browser-functions">Browser Functions</a></li>
+                    <li><a href="#performance-functions">Performance Functions</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+            </li>
+            <li><a href="#performance-tips">Performance Tips</a></li>
+            <li><a href="#technical-details">Technical Details</a></li>
+            <li><a href="#compatibility">Compatibility</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </div>
+
+    <h2 id="overview">Introduction</h2>
+    <p>
+        The Optimized Web Browser Plugin provides an enhanced version of the standard WebBrowserWidget for Unreal Engine.
+        It focuses on improving performance without removing any functionality, making it ideal for projects that require
+        web content integration with better performance characteristics.
+    </p>
+
+    <p>
+        A key feature of this plugin is the ability to control the browser frame rate (up to 120fps), enabling developers
+        to create smoother web experiences while maintaining control over performance. The plugin also provides hardware
+        acceleration management and background tab throttling for optimal resource usage.
+    </p>
+
+    <h2 id="installation">Installation</h2>
+    <p>To install the Optimized Web Browser Plugin in your Unreal Engine project:</p>
+    <ol>
+        <li>Copy the <code>OptimizedWebBrowser</code> folder to your project's <code>Plugins</code> directory</li>
+        <li>If your project doesn't have a <code>Plugins</code> directory, create one in your project's root folder</li>
+        <li>Restart the Unreal Engine editor</li>
+        <li>Enable the plugin by going to <strong>Edit → Plugins</strong>, find the <strong>Optimized Web Browser</strong> plugin under the <strong>UI</strong> category, and check the <strong>Enabled</strong> checkbox</li>
+        <li>Restart the editor when prompted</li>
+    </ol>
+    <p>The plugin is now installed and ready to use in your project.</p>
+
+    <h2 id="features">Features</h2>
+
+    <h3>Improved Performance</h3>
+    <p>Optimized rendering and reduced CPU usage compared to the standard web browser widget.</p>
+
+    <h3>Configurable Frame Rate (Up to 120fps)</h3>
+    <p>Set the browser frame rate to balance between smoothness and performance. The plugin now supports up to 120fps for high refresh rate displays.</p>
+    <pre><code>// In C++
+Browser->SetBrowserFrameRate(60);
+
+// In Blueprints
+// Use the "Set Browser Frame Rate" node</code></pre>
+
+    <h3>Hardware Acceleration Control</h3>
+    <p>Enable or disable hardware acceleration to optimize performance based on your target hardware.</p>
+    <pre><code>// In C++
+Browser->SetHardwareAccelerationEnabled(true);
+
+// In Blueprints
+// Use the "Set Hardware Acceleration Enabled" node</code></pre>
+
+    <h3>Background Tab Throttling</h3>
+    <p>Reduce CPU usage when the browser is not visible to improve overall application performance.</p>
+    <pre><code>// In C++
+Browser->SetBackgroundTabThrottlingEnabled(true);
+
+// In Blueprints
+// Use the "Set Background Tab Throttling Enabled" node</code></pre>
+
+    <h3>JavaScript Console Logging</h3>
+    <p>Send messages from Unreal Engine to the browser's JavaScript console for debugging or communication.</p>
+    <pre><code>// In C++
+Browser->LogToConsole("Hello from Unreal Engine!");
+
+// In Blueprints
+// Use the "Log To Console" node</code></pre>
+
+    <h3>Additional Optimizations</h3>
+    <ul>
+        <li><strong>Optimized Scrolling:</strong> Improved scrolling performance</li>
+        <li><strong>Lazy Loading:</strong> Automatically lazy load images for better performance</li>
+        <li><strong>Animation Optimization:</strong> Disable animations when the page is not visible</li>
+    </ul>
+
+    <h2 id="usage">Usage</h2>
+
+    <h3 id="blueprints">In Blueprints</h3>
+    <p>To use the Optimized Web Browser in your Unreal Engine project with Blueprints:</p>
+    <ol>
+        <li>Add the "Optimized Web Browser" widget to your UI</li>
+        <li>Configure the performance settings:
+            <ul>
+                <li><strong>Browser Frame Rate:</strong> Higher values (30-120) for smoother experience, lower values (15-24) for better performance</li>
+                <li><strong>Hardware Acceleration:</strong> Enable for better performance on most systems</li>
+                <li><strong>Background Color:</strong> Use opaque colors for better performance</li>
+                <li><strong>Background Tab Throttling:</strong> Enable to reduce CPU usage when the browser is not visible</li>
+            </ul>
+        </li>
+        <li>Use the "Log To Console" function to send messages from Blueprint to the browser's JavaScript console</li>
+    </ol>
+
+    <h3 id="cpp">In C++</h3>
+    <p>To use the Optimized Web Browser in your C++ code:</p>
+    <pre><code>#include "OptimizedWebBrowser.h"
+
+// Create an optimized web browser
+UOptimizedWebBrowser* Browser = CreateWidget&lt;UOptimizedWebBrowser&gt;(GetWorld(), UOptimizedWebBrowser::StaticClass());
+
+// Configure performance settings
+Browser->SetBrowserFrameRate(60); // Can now set up to 120 fps
+Browser->SetHardwareAccelerationEnabled(true);
+Browser->SetBackgroundColor(FColor(255, 255, 255, 255));
+Browser->SetBackgroundTabThrottlingEnabled(true);
+
+// Load a URL
+Browser->LoadURL("https://www.example.com");
+
+// Log a message to the browser's JavaScript console
+Browser->LogToConsole("Hello from Unreal Engine!");</code></pre>
+
+    <h2 id="api-reference">Available Functions</h2>
+    <p>The Optimized Web Browser Plugin provides a variety of functions to control browser behavior and performance. All functions are accessible through the Blueprint system and C++ code.</p>
+
+    <h3 id="browser-functions">Browser Functions</h3>
+
+    <h4>LoadURL</h4>
+    <p>Load the specified URL.</p>
+    <p><strong>Parameters:</strong> <code>FString NewURL</code> - The URL to load</p>
+    <pre><code>// Example usage in Blueprint
+Browser->LoadURL("https://www.example.com");</code></pre>
+
+    <h4>LoadString</h4>
+    <p>Load a string as data to create a web page.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>FString Contents</code> - The HTML content</li>
+        <li><code>FString DummyURL</code> - Dummy URL for the page</li>
+    </ul>
+    <pre><code>// Example usage in Blueprint
+Browser->LoadString("<html><body><h1>Hello World</h1></body></html>", "about:blank");</code></pre>
+
+    <h4>ExecuteJavascript</h4>
+    <p>Executes a JavaScript string in the context of the web page.</p>
+    <p><strong>Parameters:</strong> <code>const FString& ScriptText</code> - JavaScript code to execute</p>
+    <pre><code>// Example usage in Blueprint
+Browser->ExecuteJavascript("document.body.style.backgroundColor = 'red';");</code></pre>
+
+    <h4>GetTitleText</h4>
+    <p>Get the current title of the web page.</p>
+    <p><strong>Returns:</strong> <code>FText</code> - The page title</p>
+    <pre><code>// Example usage in Blueprint
+FText Title = Browser->GetTitleText();</code></pre>
+
+    <h4>GetUrl</h4>
+    <p>Gets the currently loaded URL.</p>
+    <p><strong>Returns:</strong> <code>FString</code> - The current URL</p>
+    <pre><code>// Example usage in Blueprint
+FString CurrentURL = Browser->GetUrl();</code></pre>
+
+    <h4>LogToConsole</h4>
+    <p>Logs a message to the browser's JavaScript console.</p>
+    <p><strong>Parameters:</strong> <code>const FString& Message</code> - The message to log</p>
+    <pre><code>// Example usage in Blueprint
+Browser->LogToConsole("Hello from Unreal Engine!");</code></pre>
+
+    <h3 id="performance-functions">Performance Functions</h3>
+
+    <h4>SetBrowserFrameRate</h4>
+    <p>Set the browser frame rate (15-120 fps).</p>
+    <p><strong>Parameters:</strong> <code>int32 FrameRate</code> - The frame rate to set</p>
+    <pre><code>// Example usage in Blueprint
+Browser->SetBrowserFrameRate(60);</code></pre>
+
+    <h4>SetHardwareAccelerationEnabled</h4>
+    <p>Enable or disable hardware acceleration.</p>
+    <p><strong>Parameters:</strong> <code>bool bEnabled</code> - Whether to enable hardware acceleration</p>
+    <pre><code>// Example usage in Blueprint
+Browser->SetHardwareAccelerationEnabled(true);</code></pre>
+
+    <h4>SetBackgroundColor</h4>
+    <p>Set the background color of the browser.</p>
+    <p><strong>Parameters:</strong> <code>FColor Color</code> - The background color</p>
+    <pre><code>// Example usage in Blueprint
+Browser->SetBackgroundColor(FColor(255, 255, 255, 255));</code></pre>
+
+    <h4>SetBackgroundTabThrottlingEnabled</h4>
+    <p>Enable or disable throttling of background tabs.</p>
+    <p><strong>Parameters:</strong> <code>bool bEnabled</code> - Whether to enable background tab throttling</p>
+    <pre><code>// Example usage in Blueprint
+Browser->SetBackgroundTabThrottlingEnabled(true);</code></pre>
+
+    <h3 id="events">Events</h3>
+
+    <h4>OnUrlChanged</h4>
+    <p>Called when the URL changes.</p>
+    <p><strong>Parameters:</strong> <code>const FText& Text</code> - The new URL</p>
+    <pre><code>// Example usage in Blueprint
+Browser->OnUrlChanged.AddDynamic(this, &YourClass::HandleUrlChanged);</code></pre>
+
+    <h4>OnBeforePopup</h4>
+    <p>Called when a popup is about to spawn.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>FString URL</code> - The popup URL</li>
+        <li><code>FString Frame</code> - The frame information</li>
+    </ul>
+    <pre><code>// Example usage in Blueprint
+Browser->OnBeforePopup.AddDynamic(this, &YourClass::HandleBeforePopup);</code></pre>
+
+    <h4>OnConsoleMessage</h4>
+    <p>Called when the browser has console messages to print.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>const FString& Message</code> - The console message</li>
+        <li><code>const FString& Source</code> - The source of the message</li>
+        <li><code>int32 Line</code> - The line number</li>
+    </ul>
+    <pre><code>// Example usage in Blueprint
+Browser->OnConsoleMessage.AddDynamic(this, &YourClass::HandleConsoleMessage);</code></pre>
+
+    <h2 id="performance-tips">Performance Tips</h2>
+    <p>To get the best performance from the Optimized Web Browser Plugin, consider the following tips:</p>
+    <ol>
+        <li><strong>Use Opaque Background Colors:</strong> Transparent backgrounds require more processing power. Set an opaque background color for better performance.</li>
+        <li><strong>Choose Appropriate Frame Rate:</strong>
+            <ul>
+                <li>Use 30 fps for a good balance between smoothness and performance</li>
+                <li>Use 60 fps for smoother animations and interactions</li>
+                <li>Use 120 fps for high-refresh rate displays and competitive applications</li>
+            </ul>
+        </li>
+        <li><strong>Optimize HTML Content:</strong>
+            <ul>
+                <li>Minimize DOM size and complexity</li>
+                <li>Reduce CSS animations and transitions</li>
+                <li>Use efficient JavaScript</li>
+                <li>Optimize images (size and format)</li>
+            </ul>
+        </li>
+        <li><strong>Avoid Autoplay Media:</strong> Autoplay videos and animations can cause performance issues</li>
+        <li><strong>Use Simple Layouts:</strong> Complex layouts with many elements can slow down rendering</li>
+        <li><strong>Enable Hardware Acceleration:</strong> For most systems, hardware acceleration will improve performance</li>
+        <li><strong>Enable Background Tab Throttling:</strong> This will reduce CPU usage when the browser is not visible</li>
+    </ol>
+
+    <h2 id="technical-details">Technical Details</h2>
+    <p>The Optimized Web Browser Plugin applies several techniques to improve performance:</p>
+    <ol>
+        <li><strong>Frame Rate Limiting:</strong> Controls the browser's internal rendering frame rate to balance between smoothness and performance</li>
+        <li><strong>Hardware Acceleration Management:</strong> Properly configures GPU acceleration for optimal rendering</li>
+        <li><strong>Background Tab Throttling:</strong> Reduces CPU usage when the browser is not visible</li>
+        <li><strong>JavaScript Optimizations:</strong> Applies performance best practices via JavaScript</li>
+        <li><strong>Rendering Optimizations:</strong> Configures the browser for optimal rendering performance</li>
+        <li><strong>CSS Optimizations:</strong> Applies performance-enhancing CSS properties</li>
+        <li><strong>Animation Frame Control:</strong> Limits animation frame rate for better performance</li>
+    </ol>
+
+    <h2 id="compatibility">Compatibility</h2>
+    <p>The Optimized Web Browser Plugin is compatible with all platforms supported by the standard WebBrowserWidget:</p>
+    <ul>
+        <li>Windows</li>
+        <li>Mac</li>
+        <li>Linux</li>
+        <li>Android</li>
+        <li>iOS</li>
+    </ul>
+
+    <p>Some features may have platform-specific limitations. For best results, test your application on all target platforms.</p>
+
+    <h2 id="support">Support</h2>
+    <p>If you encounter any issues or have questions about the Optimized Web Browser Plugin, please contact the author:</p>
+    <ul>
+        <li><strong>Website:</strong> <a href="https://anshulpatalbansi.com" target="_blank">https://anshulpatalbansi.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:ansulpat450@gmail.com">ansulpat450@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/anshul-patalbansi-014a43186" target="_blank">linkedin.com/in/anshul-patalbansi-014a43186</a></li>
+    </ul>
+
+    <footer>
+        <p>Optimized Web Browser Plugin Documentation © 2025 Anshul Patalbansi. All rights reserved.</p>
+        <p>Unreal Engine is a trademark or registered trademark of Epic Games, Inc. in the United States and elsewhere.</p>
+    </footer>
+</body>
+</html>
