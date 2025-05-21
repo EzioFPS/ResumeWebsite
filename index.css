@@ -377,14 +377,25 @@ header h2::after {
 
 /* Style for website links */
 .project-links a[href*="webflow.io"],
-.project-links a[href*=".com"]:not([href*="youtube"]):not([href*="steam"]):not([href*="drive.google.com"]) {
+.project-links a[href*=".com"]:not([href*="youtube"]):not([href*="steam"]):not([href*="drive.google.com"]):not([href*="gumroad.com"]) {
     background-color: #4285F4; /* Google blue color */
     color: white;
 }
 
 .project-links a[href*="webflow.io"]:hover,
-.project-links a[href*=".com"]:not([href*="youtube"]):not([href*="steam"]):not([href*="drive.google.com"]):hover {
+.project-links a[href*=".com"]:not([href*="youtube"]):not([href*="steam"]):not([href*="drive.google.com"]):not([href*="gumroad.com"]):hover {
     background-color: #3367D6; /* Darker blue on hover */
+    color: white;
+}
+
+/* Style for download links */
+.project-links a[href*="gumroad.com"] {
+    background-color: #05A081; /* Gumroad green color */
+    color: white;
+}
+
+.project-links a[href*="gumroad.com"]:hover {
+    background-color: #048970; /* Darker green on hover */
     color: white;
 }
 
