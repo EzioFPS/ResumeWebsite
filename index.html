@@ -1,266 +1,418 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anshul Patalbansi - Game Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>ANSHUL PATALBANSI // SYSTEM_OVERRIDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-    </button>
 
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>Anshul Patalbansi</h1>
-                <h2>Game Developer | Unreal Engine Generalist</h2>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> NAGPUR, MAHARASHTRA, INDIA</p>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/anshul-patalbansi-014a43186" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="mailto:ansulpat450@gmail.com">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    <a href="tel:+917709515413">
-                        <i class="fas fa-phone"></i> Phone
-                    </a>
-                </div>
+<body class="loading">
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="terminal-window">
+            <div class="terminal-titlebar">
+                <div class="terminal-title">ROOT@ANSHUL: ~/INIT_PROFILE</div>
             </div>
-        </header>
+            <div class="terminal-content" id="bootLog"></div>
+        </div>
+    </div>
+    <!-- FX LAYERS -->
+    <div id="cursor"></div>
+    <div class="noise-overlay"></div>
+    <div class="dither-bg"></div>
 
-        <section id="summary">
-            <h2>Professional Summary</h2>
-            <p>
-                Creative and results-driven Game Developer with experience designing immersive experiences using Unreal Engine.
-                Proficient in C++, Blueprints, 3D modeling, and shader development. Proven ability to build and optimize
-                gameplay systems, mentor teams, and deliver polished indie games like Baoli featured at Indie Game Utsav.
-                Seeking part-time or full-time roles to contribute technical expertise and creative vision to impactful projects.
-            </p>
-        </section>
+    <div class="grid-container">
+        <!-- SIDEBAR / HUD -->
+        <aside class="sidebar">
+            <h1 class="sidebar-name">
+                ANSHUL<br>
+                PATALBANSI
+            </h1>
 
-        <section id="skills">
-            <h2>Core Competencies</h2>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <div class="skill-name">Unreal Engine (Blueprints & C++)</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">3D Modeling (Blender, Substance Designer, Marvelous Designer)</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Texturing & Rendering (Substance Painter, Marmoset Toolbag)</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Gameplay Systems Development</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Game Optimization & Debugging</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Team Leadership & Curriculum Design</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Version Control & Project Management (Perforce)</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">UI/UX Design for Games (Menus, HUD, Player Feedback)</div>
-                </div>
-            </div>
-        </section>
 
-        <section id="experience">
-            <h2>Professional Experience</h2>
-
-            <div class="experience-item">
-                <div class="job-header">
-                    <h3>Freelance Game Developer</h3>
-                    <div class="company">Independent Projects</div>
-                    <div class="period">2020 – 2022</div>
-                </div>
-                <ul>
-                    <li>Worked on backend systems for battle royale game "Life On Fire" (project discontinued in 2022 due to funding restrictions).</li>
-                    <li>Served as Lead Gameplay Developer for "Project Balod" (discontinued due to unforeseen circumstances).</li>
-                    <li>Created gameplay systems, character controllers, and combat mechanics for multiple indie projects.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://www.youtube.com/watch?v=UZqxZhOKLzo" target="_blank">
-                        <i class="fab fa-youtube"></i> View Project Balod Trailer
-                    </a>
+            <div class="terminal-block" style="margin-bottom: 2rem;">
+                <div class="terminal-header">IsUser: GUEST // Access: GRANTED</div>
+                <div class="cmd-line">
+                    <span class="cmd-prompt">root@anshul:~$</span>
+                    <span class="typing-text">init_profile.exe</span>
                 </div>
             </div>
 
-            <div class="experience-item">
-                <div class="job-header">
-                    <h3>Founder & Lead Instructor</h3>
-                    <div class="company">India Game Lab</div>
-                    <div class="period">2022 – 2024</div>
-                </div>
-                <ul>
-                    <li>Designed and led a 2-year curriculum to train students in Unreal Engine, Blueprints, and 3D asset creation.</li>
-                    <li>Supervised development of multiple student-led games, some planned for Steam release.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://indiagamelab.org" target="_blank">
-                        <i class="fas fa-globe"></i> Visit Website
-                    </a>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-header">
-                    <h3>Lead Developer</h3>
-                    <div class="company">Baoli (Indie Game)</div>
-                    <div class="period">2024 – Present</div>
-                </div>
-                <ul>
-                    <li>Developed a psychological horror game using Unreal Engine 5, integrating C++ and Blueprints.</li>
-                    <li>Implemented advanced cloth simulation and created systems design for gameplay mechanics.</li>
-                    <li>Designed UI systems, level layouts, and environmental storytelling elements.</li>
-                    <li>Designed AI systems, shaders, and interactive in-game elements such as a working in-game PC.</li>
-                    <li>Led project management and version control using Perforce for a team of developers.</li>
-                    <li>Featured at Indie Game Utsav 2025.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://www.youtube.com/watch?v=Po6-1uCGTck" target="_blank">
-                        <i class="fab fa-youtube"></i> View Baoli Trailer
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Selected Projects</h2>
-
-            <div class="project-item">
-                <h3>Baoli</h3>
-                <div class="project-role">Lead Developer</div>
-                <div class="project-links">
-                    <a href="https://store.steampowered.com/app/3347710/Baoli/" target="_blank">
-                        <i class="fab fa-steam"></i> View on Steam
-                    </a>
-                </div>
-                <ul>
-                    <li>Steam-bound horror game exploring themes of trauma and isolation with stylized visuals.</li>
-                    <li>Implemented advanced cloth simulation for character clothing and environmental elements.</li>
-                    <li>Served as systems designer, creating interconnected gameplay mechanics and player progression.</li>
-                    <li>Designed and implemented UI systems with focus on immersion and narrative integration.</li>
-                    <li>Created atmospheric level designs with emphasis on environmental storytelling.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <h3>Hardware Utilities Plugin</h3>
-                <div class="project-role">Custom Unreal Engine Plugin Development</div>
-                <ul>
-                    <li>Developed a comprehensive Unreal Engine plugin for hardware detection and display management after identifying a gap in available tools.</li>
-                    <li>Demonstrated proficiency in C++ plugin architecture, UE module system, and Blueprint function library implementation.</li>
-                    <li>Implemented system for detecting and displaying hardware specifications including CPU, GPU, and audio devices.</li>
-                    <li>Created functionality for switching between multiple screens during gameplay.</li>
-                    <li>Designed an intuitive settings menu interface for easy integration into any game project.</li>
-                    <li>Built with performance optimization in mind to minimize impact on game resources.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="hardwareutilitiesdocs.html" target="_blank">
-                        <i class="fas fa-book"></i> View Documentation
-                    </a>
-                    <a href="https://anshulpat.gumroad.com/l/emfuz" target="_blank">
-                        <i class="fas fa-download"></i> Download Plugin
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>Optimized Web Browser Plugin for Unreal</h3>
-                <div class="project-role">Plugin Developer</div>
-                <ul>
-                    <li>Developed an enhanced version of the standard WebBrowserWidget for Unreal Engine with improved performance characteristics.</li>
-                    <li>Implemented configurable frame rate control (up to 120fps) for smoother web experiences while maintaining performance.</li>
-                    <li>Created hardware acceleration management and background tab throttling for optimal resource usage.</li>
-                    <li>Designed an intuitive API for both Blueprint and C++ developers with comprehensive documentation.</li>
-                    <li>Optimized rendering, scrolling performance, and animation handling for better integration in game projects.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="OptimizedBrowser.html" target="_blank">
-                        <i class="fas fa-book"></i> View Documentation
-                    </a>
-                    <a href="https://anshulpat.gumroad.com/l/udibw" target="_blank">
-                        <i class="fas fa-download"></i> Download Plugin
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>Photogrammetry Asset Pipeline</h3>
-                <div class="project-role">Asset Optimization Specialist</div>
-                <ul>
-                    <li>Developed and implemented a robust pipeline for converting high-density photogrammetry scans into optimized game-ready assets.</li>
-                    <li>Performed advanced topology optimization and manual retopology to reduce polygon count while preserving visual fidelity.</li>
-                    <li>Created efficient UV layouts that maximized texture resolution while maintaining proper texel density across assets.</li>
-                    <li>Utilized Marmoset Toolbag and Substance Painter for high-quality texture baking and refinement workflows.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>BVoc in Game Programming and Design</h3>
-                <p>IIFA Multimedia (Indian Institute of Film and Animations), 2019-2020 (Discontinued)</p>
-            </div>
-        </section>
-
-        <section id="awards">
-            <h2>Recognition & Awards</h2>
-            <ul>
-                <li>Baoli featured at Indie Game Utsav 2025</li>
-                <li>Successfully trained 20+ students through India Game Lab initiative</li>
-                <li>Multiple indie prototypes and tools published</li>
+            <ul class="nav-links">
+                <li><a href="#summary">01 // SUMMARY</a></li>
+                <li><a href="#skills">02 // SKILLS_DB</a></li>
+                <li><a href="#projects">03 // PROJECTS</a></li>
+                <li><a href="#experience">04 // EXP_LOGS</a></li>
+                <li><a href="#contact">05 // COMMS</a></li>
             </ul>
-        </section>
 
-        <section id="contact">
-            <h2>Portfolio & Contact</h2>
-            <p>
-                <i class="fab fa-linkedin"></i> LinkedIn:
-                <a href="https://linkedin.com/in/anshul-patalbansi-014a43186" target="_blank">
-                    linkedin.com/in/anshul-patalbansi-014a43186
-                </a>
-            </p>
-            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ansulpat450@gmail.com">ansulpat450@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+917709515413">+91 7709515413</a></p>
-            <p>Open to remote, part-time, or full-time opportunities</p>
-        </section>
+            <div style="margin-top: 4rem; opacity: 0.7; font-size: 0.8rem;">
+                <p>LOCATION: NAGPUR_IN</p>
+                <p>STATUS: ONLINE</p>
+                <p>UPTIME: 99.9%</p>
+            </div>
+        </aside>
+
+        <!-- MAIN FEED -->
+        <main>
+            <!-- HERO / SUMMARY -->
+            <section id="summary">
+                <h1 class="glitch-header" data-text="UNREAL ENGINE GENERALIST">UNREAL ENGINE GENERALIST</h1>
+                <div class="retro-card">
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                        <span style="color: var(--accent-color);">></span>
+                        Creative and results-driven Game Developer designing immersive experiences with Unreal Engine.
+                    </p>
+                    <p>
+                        Proficient in C++, Blueprints, and Shader Dev. Proven ability to optimize systems and deliver
+                        polished indie games like
+                        <span style="background: var(--accent-color); color: black; padding: 0 4px;">BAOLI</span>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills">
+                <h2 class="glitch-header" data-text="CORE_COMPETENCIES">CORE_COMPETENCIES</h2>
+                <div class="terminal-block">
+                    <div class="terminal-header">root@anshul:~/skills</div>
+
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">$</span> cat primary_engine.txt
+                    </div>
+                    <span class="cmd-output">Unreal Engine 5 (C++, Blueprints, Plugin Architecture)</span>
+
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">$</span> ls ./graphics/
+                    </div>
+                    <span class="cmd-output">Blender Substance_Painter Marmoset_Toolbag Marvelous_Designer</span>
+
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">$</span> ./check_optimization.sh
+                    </div>
+                    <span class="cmd-output">
+                        [OK] Profiling & Debugging<br>
+                        [OK] Rendering Pipeline<br>
+                        [OK] Memory Management
+                    </span>
+                </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects">
+                <h2 class="glitch-header" data-text="SELECTED_PROJECTS">SELECTED_PROJECTS</h2>
+
+                <div class="retro-card tilt-element">
+                    <h3>BAOLI</h3>
+                    <div class="role">LEAD DEVELOPER</div>
+                    <p>Steam-bound psychological horror game exploring trauma and isolation.</p>
+                    <ul>
+                        <li>Advanced cloth simulation & environmental storytelling</li>
+                        <li>Systems design for player progression</li>
+                        <li>Narrative integration & immersive UI</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://store.steampowered.com/app/3347710/Baoli/" class="btn"
+                            target="_blank">STEAM_PAGE</a>
+                        <a href="https://www.youtube.com/watch?v=Po6-1uCGTck" class="btn"
+                            target="_blank">TRAILER.AVI</a>
+                    </div>
+                </div>
+
+                <div class="retro-card tilt-element">
+                    <h3>HARDWARE UTILITIES PLUGIN</h3>
+                    <div class="role">PLUGIN DEV</div>
+                    <p>Comprehensive UE5 plugin for hardware detection and display management.</p>
+                    <ul>
+                        <li>C++ Module Architecture</li>
+                        <li>Hardware Spec Detection (CPU/GPU/Audio)</li>
+                        <li>Multi-screen Gameplay Functionality</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://anshulpat.gumroad.com/l/emfuz" class="btn" target="_blank">DOWNLOAD_V1.0</a>
+                        <a href="hardwareutilitiesdocs.html" class="btn" target="_blank">READ_DOCS</a>
+                    </div>
+                </div>
+
+                <div class="retro-card tilt-element">
+                    <h3>OPTIMIZED BROWSER PLUGIN</h3>
+                    <div class="role">TOOL DEV</div>
+                    <p>Enhanced WebBrowserWidget for Unreal with 120fps control.</p>
+                    <ul>
+                        <li>Background Tab Throttling</li>
+                        <li>Hardware Acceleration Management</li>
+                        <li>Blueprint & C++ API</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://anshulpat.gumroad.com/l/udibw" class="btn" target="_blank">GET_PLUGIN</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section id="experience">
+                <h2 class="glitch-header" data-text="EXPERIENCE_LOG">EXPERIENCE_LOG</h2>
+
+                <div class="retro-card tilt-element">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <h3>INDIA GAME LAB</h3>
+                        <span style="font-size: 0.8rem; opacity: 0.7;">2022 - 2024</span>
+                    </div>
+                    <div class="role">FOUNDER & INSTRUCTOR</div>
+                    <ul>
+                        <li>Designed 2-year curriculum for UE5 & 3D Art</li>
+                        <li>Supervised 20+ student projects</li>
+                        <li>Mentored teams for Steam releases</li>
+                    </ul>
+                </div>
+
+                <div class="retro-card tilt-element">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <h3>FREELANCE</h3>
+                        <span style="font-size: 0.8rem; opacity: 0.7;">2020 - 2022</span>
+                    </div>
+                    <div class="role">GAMEPLAY PROGRAMMER</div>
+                    <ul>
+                        <li>"Life On Fire" Battle Royale Backend Systems</li>
+                        <li>"Project Balod" Lead Gameplay Developer</li>
+                        <li>Character controllers & combat mechanics</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact">
+                <h2 class="glitch-header" data-text="ESTABLISH_UPLINK">ESTABLISH_UPLINK</h2>
+                <div class="terminal-block">
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">$</span> ping anshul_patalbansi
+                    </div>
+                    <div class="cmd-output">
+                        <a href="mailto:ansulpat450@gmail.com"
+                            style="color: inherit; text-decoration: none; display: block; margin-bottom: 5px;">
+                            > EMAIL: ansulpat450@gmail.com [CONNECTED]
+                        </a>
+                        <a href="https://linkedin.com/in/anshul-patalbansi-014a43186" target="_blank"
+                            style="color: inherit; text-decoration: none; display: block; margin-bottom: 5px;">
+                            > LINKEDIN: /in/anshul-patalbansi [VERIFIED]
+                        </a>
+                        <a href="tel:+917709515413" style="color: inherit; text-decoration: none; display: block;">
+                            > PHONE: +91 7709515413 [SECURE]
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <!-- Theme Toggle Script -->
+    <!-- SCRIPTS -->
     <script>
-        // Get the theme toggle button
-        const themeToggle = document.getElementById('themeToggle');
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        const links = document.querySelectorAll('a, button');
 
-        // Check if user has a saved preference
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
 
-        // Toggle theme when button is clicked
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-            // Update the theme
-            document.documentElement.setAttribute('data-theme', newTheme);
-
-            // Save preference to localStorage
-            localStorage.setItem('theme', newTheme);
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
+
+        // Use requestAnimationFrame for smooth interaction
+        function animateCursor() {
+            // Simple interpolation for lag effect, can be 1.0 for instant
+            const speed = 0.5;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.retro-card')) {
+                cursor.classList.add('hovered');
+            } else {
+                cursor.classList.remove('hovered');
+            }
+        });
+
+        // 3D Tilt Effect
+        const cards = document.querySelectorAll('.tilt-element');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Calculate rotation based on cursor position relative to center
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Limit rotation to 5deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+
+                // Add simple lighting effect
+                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08), rgba(255,255,255,0.03))`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                card.style.background = 'rgba(255, 255, 255, 0.03)';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Init Typing Intro
+        const typeText = "init_profile.exe";
+        const typeEl = document.querySelector('.typing-text');
+        typeEl.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < typeText.length) {
+                typeEl.textContent += typeText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // Add blinking cursor at end
+                typeEl.innerHTML += '<span style="animation: blink 1s infinite">_</span>';
+            }
+        }
+
+        // Start typing after a small delay
+        setTimeout(typeWriter, 500);
+
+        // Add blink keyframes dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // --- LOADER LOGIC ---
+        // Code typing simulation
+        const bootLog = document.getElementById('bootLog');
+        const loader = document.getElementById('loader');
+
+        const bootSequence = [
+            { type: 'cmd', text: 'clang++ -std=c++20 main.cpp -o init_profile', delay: 200 },
+            { type: 'log', text: 'Compiling source files...', delay: 50 },
+            { type: 'log', text: 'Linking objects...', delay: 50 },
+            { type: 'log', text: 'Build successful within 0.1s', delay: 100, class: 'log-success' },
+            { type: 'cmd', text: './init_profile --verbose', delay: 200 },
+            { type: 'log', text: '[INFO] Initializing Core... 100%', delay: 20 },
+            { type: 'log', text: '[INFO] LogInit: Display: Running Unreal Engine 5.4.1', delay: 20 },
+            { type: 'log', text: '[INFO] LogPlatformFile: Not using cached read wrapper', delay: 10 },
+            { type: 'log', text: '[INFO] Module: Loading UObject...', delay: 20 },
+            { type: 'log', text: '[INFO] Module: Loading Engine...', delay: 50 },
+            { type: 'log', text: '[INFO] Module: Loading Renderer...', delay: 20 },
+            { type: 'log', text: '[INFO] RHI: DirectX 12 Adapter: NVIDIA GeForce RTX 4090', delay: 50 },
+            { type: 'log', text: '[INFO] ShaderCompiler: Found 450 shaders to compile', delay: 50 },
+            { type: 'log', text: '[SUCCESS] AssetManager: 1205 assets loaded successfully', delay: 100, class: 'log-success' },
+            { type: 'log', text: '[INFO] NetDriver: Listening on port 7777...', delay: 50 },
+            { type: 'log', text: '[INFO] UWorld: Bringing up level...', delay: 100 },
+            { type: 'log', text: '[SUCCESS] SYSTEM READY. WELCOME, USER.', delay: 400, class: 'log-success' }
+        ];
+
+        let seqIndex = 0;
+
+        async function runBootSequence() {
+            if (seqIndex < bootSequence.length) {
+                const item = bootSequence[seqIndex];
+
+                if (item.type === 'cmd') {
+                    // Type out command line
+                    const line = document.createElement('div');
+                    line.className = 'boot-line';
+                    line.innerHTML = `<span class="path">root@anshul:~/init$</span> `;
+                    bootLog.appendChild(line);
+
+                    // Typing effect for command
+                    const cmdSpan = document.createElement('span');
+                    cmdSpan.className = 'cmd-input';
+                    line.appendChild(cmdSpan);
+
+                    // First command matches user request to be slow, others fast
+                    const speed = (seqIndex === 0) ? 'slow' : 'fast';
+                    await typeConsole(cmdSpan, item.text, speed);
+                } else {
+                    // Log output
+                    const line = document.createElement('div');
+                    line.className = `boot-line ${item.class || 'log-info'}`;
+                    line.textContent = item.text;
+                    bootLog.appendChild(line);
+                }
+
+                // Auto scroll the terminal content div
+                const terminalContent = document.getElementById('bootLog');
+                if (terminalContent) {
+                    terminalContent.scrollTop = terminalContent.scrollHeight;
+                }
+
+                seqIndex++;
+                setTimeout(runBootSequence, item.delay);
+            } else {
+                // Done
+                const terminalWindow = document.querySelector('.terminal-window');
+                terminalWindow.classList.add('exit-anim');
+
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                    document.body.classList.remove('loading');
+                }, 800); // Wait for exit animation
+            }
+        }
+
+        // Renamed function to avoid collision with sidebar logic
+        function typeConsole(element, text, speed = 'fast') {
+            return new Promise(resolve => {
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        // Slow: 40-90ms, Fast: 5-20ms
+                        const delay = (speed === 'slow')
+                            ? (40 + Math.random() * 50)
+                            : (5 + Math.random() * 15);
+                        setTimeout(type, delay);
+                    } else {
+                        resolve();
+                    }
+                }
+                type();
+            });
+        }
+
+        // Start boot after a short delay
+        setTimeout(runBootSequence, 500);
+
     </script>
 </body>
+
 </html>
