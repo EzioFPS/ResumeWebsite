@@ -209,6 +209,31 @@
         </main>
     </div>
 
+    <!-- FLOATING TERMINAL TOGGLE -->
+    <button id="termToggle" class="terminal-toggle-btn" title="Open System Terminal">
+        <i class="fas fa-terminal"></i>
+    </button>
+
+    <!-- INTERACTIVE TERMINAL OVERLAY -->
+    <div id="interactiveTerminal" class="terminal-overlay hidden">
+        <div class="terminal-window modal-window">
+            <div class="terminal-titlebar">
+                <div class="terminal-title">ROOT@ANSHUL: ~/GUEST_SESSION</div>
+                <button id="closeTerm" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="terminal-content" id="termOutput">
+                <div class="boot-line">CONNECTED // SECURE LINK ESTABLISHED</div>
+                <div class="boot-line">Type <span class="highlight">'help'</span> for list of commands.</div>
+                <div class="boot-line">Type <span class="highlight">'game'</span> to initialize CORE_DECRYPT.exe</div>
+                <br>
+            </div>
+            <div class="cmd-input-area">
+                <span class="cmd-prompt">guest@anshul:~$</span>
+                <input type="text" id="termInput" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
     <script>
         // Custom Cursor Logic
@@ -411,6 +436,168 @@
 
         // Start boot after a short delay
         setTimeout(runBootSequence, 500);
+
+
+        // --- INTERACTIVE TERMINAL LOGIC ---
+        const termToggle = document.getElementById('termToggle');
+        const interactiveTerminal = document.getElementById('interactiveTerminal');
+        const closeTerm = document.getElementById('closeTerm');
+        const termInput = document.getElementById('termInput');
+        const termOutput = document.getElementById('termOutput');
+        let gameActive = false;
+        let gameInterval = null;
+
+        // Toggle
+        termToggle.addEventListener('click', () => {
+            interactiveTerminal.classList.remove('hidden');
+            termInput.focus();
+        });
+
+        closeTerm.addEventListener('click', () => {
+            interactiveTerminal.classList.add('hidden');
+            stopGame();
+        });
+
+        // Command Handling
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = termInput.value.trim().toLowerCase();
+                printLine(`guest@anshul:~$ ${cmd}`, 'cmd-history');
+                termInput.value = '';
+                processCommand(cmd);
+            }
+        });
+
+        function printLine(text, className = '') {
+            const line = document.createElement('div');
+            line.className = 'boot-line ' + className;
+            line.innerHTML = text;
+            termOutput.appendChild(line);
+            termOutput.scrollTop = termOutput.scrollHeight;
+        }
+
+        function processCommand(cmd) {
+            if (gameActive) {
+                checkGameInput(cmd);
+                return;
+            }
+
+            switch (cmd) {
+                case 'help':
+                    printLine('AVAILABLE COMMANDS:');
+                    printLine('- help     : Show this menu');
+                    printLine('- clear    : Clear terminal');
+                    printLine('- game     : Launch CORE_DECRYPT');
+                    printLine('- whoami   : Display user info');
+                    printLine('- exit     : Close session');
+                    break;
+                case 'clear':
+                    termOutput.innerHTML = '';
+                    break;
+                case 'whoami':
+                    printLine('USER: GUEST // ACCESS LEVEL: 1');
+                    break;
+                case 'exit':
+                    interactiveTerminal.classList.add('hidden');
+                    break;
+                case 'game':
+                    startGame();
+                    break;
+                case '':
+                    break;
+                default:
+                    printLine(`Command not found: ${cmd}. Type 'help'.`, 'log-warning');
+            }
+        }
+
+        // --- CORE_DECRYPT GAME ---
+        let decryptLevel = 1;
+        let cursorPosition = 0;
+        let targetZone = [4, 7]; // Start index, end index
+        let direction = 1;
+        const width = 20;
+
+        function startGame() {
+            gameActive = true;
+            decryptLevel = 1;
+            printLine('<br>INITIALIZING CORE_DECRYPT.EXE...', 'highlight');
+            printLine('INSTRUCTION: Press [ENTER] when the cursor symbol matches the TARGET ZONE [|].');
+            printLine('Loading Level 1...');
+            setTimeout(gameLoop, 1000);
+        }
+
+        function stopGame() {
+            gameActive = false;
+            if (gameInterval) clearInterval(gameInterval);
+            gameInterval = null;
+        }
+
+        function gameLoop() {
+            if (!gameActive) return;
+
+            // Generate Game UI string
+            // [ . . . . | | | . . . * . . . . ]
+            if (gameInterval) clearInterval(gameInterval);
+
+            // Set difficulty speed
+            const speed = Math.max(50, 200 - (decryptLevel * 40));
+
+            // Randomize target
+            const zoneSize = Math.max(2, 6 - decryptLevel);
+            const start = Math.floor(Math.random() * (width - zoneSize - 2)) + 1;
+            targetZone = [start, start + zoneSize];
+
+            gameInterval = setInterval(() => {
+                let render = '[';
+                for (let i = 0; i < width; i++) {
+                    if (i === cursorPosition) {
+                        render += '<span style="color:#fff; font-weight:bold;">*</span>';
+                    } else if (i >= targetZone[0] && i < targetZone[1]) {
+                        render += '<span style="color:var(--accent-color);">|</span>';
+                    } else {
+                        render += '.';
+                    }
+                }
+                render += `] LVL:${decryptLevel}`;
+
+                // Clear last line if it's the game line (hacky but works for simple terminal)
+                const lastLine = termOutput.lastElementChild;
+                if (lastLine && lastLine.classList.contains('game-render')) {
+                    lastLine.innerHTML = render;
+                } else {
+                    printLine(render, 'game-render');
+                }
+
+                // Move cursor
+                cursorPosition += direction;
+                if (cursorPosition >= width - 1 || cursorPosition <= 0) direction *= -1;
+
+            }, speed);
+        }
+
+        function checkGameInput(cmd) {
+            // Any input triggers check
+            if (gameInterval) clearInterval(gameInterval);
+
+            const hit = cursorPosition >= targetZone[0] && cursorPosition < targetZone[1];
+
+            if (hit) {
+                printLine(`[SUCCESS] BLOCK ${decryptLevel} DECRYPTED.`, 'log-success');
+                decryptLevel++;
+                if (decryptLevel > 3) {
+                    printLine('<br>*** SYSTEM BREACH SUCCESSFUL ***', 'highlight');
+                    printLine('SECRET UNLOCKED: "The key to good code is coffee."', 'log-info');
+                    printLine('Returning to shell...', 'path');
+                    gameActive = false;
+                } else {
+                    printLine(`Advancing to Level ${decryptLevel}...`);
+                    setTimeout(gameLoop, 1000);
+                }
+            } else {
+                printLine(`[FAILED] MISSED TARGET. RETRYING LEVEL ${decryptLevel}...`, 'log-warning');
+                setTimeout(gameLoop, 1000);
+            }
+        }
 
     </script>
 </body>
